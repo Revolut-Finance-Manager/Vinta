@@ -1,5 +1,7 @@
 import requests
 import sys
+import copy
+import os
 
 # dictionary country name to country code url
 # webmap should have the following structure:
@@ -15,12 +17,27 @@ import sys
 #   }
 webmap = {}
 country_code = {
-    "United States": ".us",
-    "United Kingdom": ".co.uk",
-    "Portugal": ".pt",
+    "Austria": ".at",
+    "Belgium": ".be",
+    "Canada": ".ca",
+    "Czech Republic": ".cz",
     "Germany": ".de",
-    "Spain": ".es"
+    "Spain": ".es",
+    "France": ".fr",
+    "Hungary": ".hu",
+    "Italy": ".it",
+    "Lithuania": ".lt",
+    "Luxembourg": ".lu",
+    "Netherlands": ".nl",
+    "Poland": ".pl",
+    "Portugal": ".pt",
+    "Sweden": ".se",
+    "Slowakia": ".sk",
+    "United Kingdom": ".co.uk",
+    "United States": ".us"
 }
+
+
 # function to get all available urls from the website
 def get_content(url):
     # get content from url
@@ -28,7 +45,24 @@ def get_content(url):
     # return content
     return r.content
 
-    
+# def write_key_files(key, key_aux):
+#         # if file does not exist, create it
+#         if not os.path.exists(key + ".txt") and key == "mulher":
+#             key_file = open(key + ".txt", "w")
+#         else:
+#             key_file = open(key + ".txt", "a")
+#         key_file.write(key + ":\n")
+#         while key_aux != {}:
+#             for k in key_aux:
+#                 key_file.write("\t" + k + "\n")
+#                 if key_aux[key][k] != {}:
+#                     key_aux = key_aux[key][k].keys()
+#                     write_key_files(k, key_aux)
+#                 else:
+#                     key_aux = {}
+
+
+
 # given an url like "/section1/section2/section3/section4"
 # update the webmap dictionary so that each section is a key to the next section
 def divide_url(url):
@@ -37,26 +71,27 @@ def divide_url(url):
     # print(url)
     # split url by "/"
     sections = url.split("/")
-    #print(sections)
     temp_dict = webmap
     prev_section = ""
     for i in range(len(sections)):
         key = sections[i]
-        if key not in temp_dict:
-            if prev_section == "":
-                webmap[key] = {}
-            else:
-                temp_dict[key] = {}
-        prev_section = key
-        #print(prev_section)
-        #print(webmap)
-        temp_dict = temp_dict[key]
-        #print(temp_dict)
+        if '"' in key :
+            key = key[:-1]
+        if key == "www.vinted.pt" or key == "ttps:" or key == "images1.vinted.net":
+            continue
+        else: 
+            if key not in temp_dict:
+                if prev_section == "":
+                    webmap[key] = {}
+                    key_file = open("./Vinted Sections MD/" + sections[0] + ".md", "w")
+                    key_file.write("- " + key + ":\n")
+                else:
+                    temp_dict[key] = {}
+                    key_file = open("./Vinted Sections MD/" + sections[0] + ".md", "a")
+                    key_file.write("\t"*i + "- " + key + "\n")
+            prev_section = key
+            temp_dict = temp_dict[key]
 
-
-
-
-    
 
 
 def main(country):
@@ -73,24 +108,7 @@ def main(country):
             divide_url(url)
         except:
             continue
-    # remove key from webmap if it is empty
-    
-    import copy
-    # print webmap dictionary
-    # print the keys in webmap 
-    # for each key in webmap, print the keys in the value
-    temp = copy.deepcopy(webmap)
-    for key in temp.keys():
-        if key == "www.vinted.pt" or key == "ttps:" or key == "images1.vinted.net":
-            del webmap[key]
-        else:
-            print(key)
-            print(webmap[key].keys())
-    print(webmap)
-    # create a dictionary with the id as key and the title as value
-    file = open("vinted" + country_code[country] + ".html", "w")
-    file.write(str(content))
-    file.close()
+        
 
 if __name__ == "__main__":
     # get country as argument
