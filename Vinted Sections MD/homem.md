@@ -104,29 +104,29 @@
 		- trajes-e-roupas-especiais
 		- outro-vestuario-para-homem
 	- sapatos
+		- botas
+			- botas-pelo-tornozelo
+			- botas-chelsea
+			- botas-de-combate
+			- botas-do-deserto
+			- botas-ate-ao-joelho
+			- botas-wellington
+		- sapatos-formais
 		- oxfords-e-mocassins
 			- sapatos-de-vela
 			- oxfords-e-sapatos-de-atacadores
 			- mocassins-e-sapatos-sem-atacadores
+		- sandalias
 		- chinelos-e-flip-flops-2054
 		- chinelos-e-flip-flops
 			- flip-flops
-		- sapatos-formais
-		- sapatilhas
 		- calcado-desportivo
-			- corrida
-			- ar-livre-e-caminhadas
 			- desportos-de-interior
+			- ar-livre-e-caminhadas
+			- corrida
 			- outro-calcado-desportivo
-		- sandalias
+		- sapatilhas
 		- outro-calcado
-		- botas
-			- botas-chelsea
-			- botas-do-deserto
-			- botas-pelo-tornozelo
-			- botas-ate-ao-joelho
-			- botas-de-combate
-			- botas-wellington
 	- acessorios
 		- gravatas-e-lencos-de-bolso
 		- malas-e-mochilas
@@ -143,8 +143,8 @@
 			- colares-e-pendentes
 			- aneis
 			- pulseiras
-			- botoes-de-punho
 			- outro
+			- botoes-de-punho
 		- cintos
 		- relogios
 		- culos-de-sol

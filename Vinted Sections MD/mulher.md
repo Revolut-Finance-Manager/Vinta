@@ -27,7 +27,6 @@
 				- casacos-corta-vento
 			- coletes
 		- camisolas-e-sweaters
-			- hoodies-e-sweatshirts
 			- sweaters
 				- camisolas-com-gola-em-v
 				- camisolas-de-gola-alta
@@ -35,6 +34,7 @@
 				- camisolas-de-malha
 				- camisolas-com-manga-a-three-fourths
 				- outras-camisolas
+			- hoodies-e-sweatshirts
 			- quimonos
 			- cardigans
 			- boleros
@@ -181,34 +181,34 @@
 		- trajes-e-roupas-especiais
 		- outro-vestuario
 	- sapatos
+		- botas-pelo-tornozelo
 		- botas
-			- botas-de-plataforma
-			- botas-ate-ao-joelho
-			- botas-de-cowboy
 			- botas-de-combate
+			- botas-de-cowboy
+			- botas-ate-ao-joelho
+			- botas-de-plataforma
 			- botas-wellington
-		- sapatos-de-salto
-			- saltos-altos
-			- sapatos-abertos-atras
-			- sapatos-de-cunha
-			- tamancos-e-socas
 		- sapatos-rasos-1909
 		- sapatos-rasos
 			- sabrinas
+		- flip-flops
+		- sapatos-de-salto
+			- tamancos-e-socas
+			- saltos-altos
+			- sapatos-abertos-atras
+			- sapatos-de-cunha
 		- oxfords-e-mocassins-1910
 		- oxfords-e-mocassins
 			- sapatos-de-vela-e-mocassins
-		- botas-pelo-tornozelo
 		- sandalias
-		- calcado-desportivo
-			- corrida
-			- ar-livre-e-caminhadas
-			- desportos-de-interior
-			- sapatilhas
-			- sapatilhas-de-lona
-			- outro-calcado-desportivo
-		- flip-flops
 		- chinelos
+		- calcado-desportivo
+			- sapatilhas-de-lona
+			- desportos-de-interior
+			- ar-livre-e-caminhadas
+			- corrida
+			- sapatilhas
+			- outro-calcado-desportivo
 		- outro-calcado
 	- malas
 		- bolsas

@@ -9,15 +9,15 @@
 			- outros
 		- sapatos
 			- sapatos-para-bebe
+			- botas
 			- sapatos-rasos
-			- sandalias
 			- sapatos-para-ocasioes-especiais
-			- sapatos-sem-atacadores
-			- botas-pelo-tornozelo
 			- botas-de-cano-medio
-			- galochas
-			- sapatilhas
+			- sandalias
+			- sapatos-sem-atacadores
 			- chinelos
+			- sapatilhas
+			- galochas
 			- outro-calcado
 		- vestuario-de-exterior
 		- casacos-e-blusoes-1519
@@ -115,14 +115,14 @@
 			- outro-vestuario-para-bebe
 		- sapatos
 			- sapatos-para-bebe
-			- sandalias
+			- botas
 			- sapatos-para-ocasioes-especiais
-			- sapatos-sem-atacadores
-			- botas-pelo-tornozelo
 			- botas-de-cano-medio
-			- galochas
-			- sapatilhas
+			- sandalias
+			- sapatos-sem-atacadores
 			- chinelos
+			- sapatilhas
+			- galochas
 			- outro-calcado
 		- vestuario-de-exterior
 		- casacos-e-blusoes-1647

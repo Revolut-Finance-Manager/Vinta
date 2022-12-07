@@ -70,25 +70,27 @@ def divide_url(url):
     url = url[2:]
     # print(url)
     # split url by "/"
-    sections = url.split("/")
+    sections = url.replace("ttps:", "").split("/")
     temp_dict = webmap
     prev_section = ""
     for i in range(len(sections)):
         key = sections[i]
         if '"' in key :
             key = key[:-1]
-        if key == "www.vinted.pt" or key == "ttps:" or key == "images1.vinted.net":
+        if key == "www.vinted.pt" or key == "" or key == "images1.vinted.net":
             continue
         else: 
-            if key not in temp_dict:
+            if key not in temp_dict and sections[0] != "":
                 if prev_section == "":
                     webmap[key] = {}
                     key_file = open("./Vinted Sections MD/" + sections[0] + ".md", "w")
                     key_file.write("- " + key + ":\n")
+                    key_file.close()
                 else:
                     temp_dict[key] = {}
                     key_file = open("./Vinted Sections MD/" + sections[0] + ".md", "a")
                     key_file.write("\t"*i + "- " + key + "\n")
+                    key_file.close()
             prev_section = key
             temp_dict = temp_dict[key]
 
