@@ -61,7 +61,52 @@ def get_content(url):
 #                 else:
 #                     key_aux = {}
 
+# given a main section and a sub section, return the url from webmap 
+# example: /section1/section2/section3/section4
+# get_url_from_webmap("section1", "section2") -> /section1/section2
+# get_url_from_webmap("section1", "section4") -> /section1/section2/section3/section4
+def get_url_from_webmap(key, sub_key, overall_key=[]):
+    # get the dictionary corresponding to the key
+    if overall_key == []:
+        overall_key.append(key)
+        key_dict = webmap[key]
+    else:
+        key_dict = webmap[overall_key[0]]
+        for i in range(1, len(overall_key)):
+            if overall_key[i] in key_dict:
+                key_dict = key_dict[overall_key[i]]
+    # if the sub_key is in the dictionary, then return the url
+    if sub_key in key_dict:
+        return "/".join(overall_key) + "/" + sub_key
+    # if the sub_key is not in the dictionary, then go through the dictionary
+    # and call the function recursively
+    else:
+        for k in key_dict:
+            if key_dict[k] != {}:
+                overall_key.append(k)
+                url = get_url_from_webmap(key, sub_key, overall_key)
+                if url != None:
+                    return url
+                overall_key.pop()
 
+
+
+# given a query check the Vinted Sections MD folder for the corresponding file and write the query to it
+# Example: homem calcas-de-ganga-rasgadas -> in Vinted Sections MD/homem.md search for "calcas-de-ganga-rasgadas"
+def write_query(query):
+    # split query by " "
+    sections = query.split(" ")
+    # get the first section
+    key = sections[0]
+    # open the file corresponding to the first section
+    key_file = open("./Vinted Sections MD/" + key + ".md", "r")
+    # search in the file for the query
+    for line in key_file:
+        if sections[1] in line:
+            # get the url from webmap
+            url = get_url_from_webmap(key, sections[1])
+            return url
+    
 
 # given an url like "/section1/section2/section3/section4"
 # update the webmap dictionary so that each section is a key to the next section
@@ -111,6 +156,9 @@ def main(country):
         except:
             continue
         
+    # query = "homem mocassins-e-sapatos-sem-atacadores"
+    # url = write_query(query)
+    # print(url)
 
 if __name__ == "__main__":
     # get country as argument
